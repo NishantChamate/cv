@@ -1,1 +1,9 @@
-
+version: 1
+runtime: python3.9
+build:
+  commands:
+    - pip install -r requirements.txt
+run:
+  command: "gunicorn -w 4 -b 0.0.0.0:8080 app:app"
+  network:
+    port: 8080
